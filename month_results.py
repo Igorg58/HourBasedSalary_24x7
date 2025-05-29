@@ -11,6 +11,9 @@ def month_results(month: str, year: str):
         sys.path.insert(0, config_path)
     monthly_config_module = importlib.import_module(f'config_{month}_{year}')
 
+    output_exist = os.path.isdir('Output')
+    if not output_exist:
+        os.mkdir('Output')
     output_file_path = os.path.join('Output', f'salary_{month}_{year}.txt')
     fp = open(output_file_path, 'w')
     types_and_salary = DailyEarnTypes.get_types_and_salary()
