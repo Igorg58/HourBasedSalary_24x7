@@ -3,7 +3,7 @@ from enum import StrEnum, auto
 rate_base = 34.32  # default min
 
 
-class TypesStr(StrEnum):
+class TypesStrEnum(StrEnum):
     day_regular = 'day_regular'
     friday_morning_8 = 'friday_morning_8'
     friday_evening_8 = 'friday_evening_8'

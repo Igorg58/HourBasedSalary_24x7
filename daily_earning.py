@@ -22,6 +22,10 @@ class DailyEarn(object):
 
 
 class DailyEarnTypes(object):
+    """
+    Collection of all possible instances of DailyEarn according to hours number and extra hours.
+    Extra hours depend on day-of-week (regular / shabbat (holiday))EE```, hours number, day / night.
+    """
     day_regular = DailyEarn(8)
     # print(f'Regular 8 = {day_regular.daily_salary()}')
 
