@@ -1,6 +1,7 @@
 import os
 import sys
 import importlib
+from common_data import btl
 from daily_earning import DailyEarnTypes
 from config_csv_processing import config_csv_processing
 
@@ -76,4 +77,29 @@ def month_results(month: str, year: str):
     detailed_hours.update(verbal_extra_hours)
     print(f'Detailed hours = {detailed_hours}')
     fp.write(f'Detailed hours = {detailed_hours}\n')
+
+    # BTL - Bituah Leumi (National Insurance)
+    # salary += 3841   # TMP, to be del
+    # print(f'Sum salary 04-05 = {salary}')
+    national_ins = 0
+    health_ins = 0
+    low_salary_step = list(btl.keys())[0]  # tuple
+    high_salary_step = list(btl.keys())[1]  # tuple
+    btl_low = btl[low_salary_step]
+    btl_high = btl[high_salary_step]
+    if salary <= low_salary_step[1]:
+        national_ins = salary * btl_low['nation_ins'] / 100
+        health_ins = salary * btl_low['health_ins'] / 100
+    elif high_salary_step[0] < salary < high_salary_step[1]:
+        national_ins = (low_salary_step[1] * btl_low['nation_ins'] / 100 +
+                        (salary - low_salary_step[1]) * btl_high['nation_ins'] / 100)
+
+        health_ins = (low_salary_step[1] * btl_low['health_ins'] / 100 +
+                      (salary - low_salary_step[1]) * btl_high['health_ins'] / 100)
+
+    print(f'Nation Insurance = {national_ins:.2f}')
+    fp.write(f'Nation Insurance = {national_ins:.2f}\n')
+    print(f'Health Insurance = {health_ins:.2f}')
+    fp.write(f'Health Insurance = {health_ins:.2f}\n')
+
     fp.close()

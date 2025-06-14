@@ -3,6 +3,10 @@ from enum import StrEnum, auto
 # rate_base = 34.32  # default min
 rate_base = 35
 
+# BTL (insurance)
+btl = {(0, 7522): {'nation_ins': 1.04, 'health_ins': 3.23},
+       (7522, 50695): {'nation_ins': 7.0, 'health_ins': 5.17}}
+
 
 class TypesStrEnum(StrEnum):
     regular_morning_8 = 'regular_morning_8'
