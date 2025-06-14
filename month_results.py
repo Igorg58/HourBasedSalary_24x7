@@ -70,8 +70,10 @@ def month_results(month: str, year: str):
     print(f'All hours = {all_hours}')
     fp.write(f'All hours = {all_hours}\n')
 
-    # print(f'extra hours = {extra_hours}')  # TODO: human print
-    verbal_extra_hours = {key.split('_')[1]+'%': val for (key, val) in extra_hours.items()}  # human print
-    print(f'extra hours = {verbal_extra_hours}')
-    fp.write(f'extra hours = {verbal_extra_hours}\n')
+    regular_hours_num = all_hours - sum(extra_hours.values())
+    detailed_hours = {'100%': regular_hours_num}
+    verbal_extra_hours = {key.split('_')[1]+'%': val for (key, val) in extra_hours.items()}  # human view
+    detailed_hours.update(verbal_extra_hours)
+    print(f'Detailed hours = {detailed_hours}')
+    fp.write(f'Detailed hours = {detailed_hours}\n')
     fp.close()

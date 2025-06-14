@@ -50,7 +50,8 @@ class DailyEarnTypes(object):
     @staticmethod
     def get_types_and_salary():
         types_and_salary = [
-            '=' * 10 + ' Common info:types and salary ' + '=' * 10 + '\n'
+            '=' * 10 + ' Common info:types and salary ' + '=' * 10 + '\n',
+            f'Base rate = {rate_base}\n'
             f'Regular morning 8 = {DailyEarnTypes.regular_morning_8.daily_salary():.2f}\n',
             f'Regular evening 8 = {DailyEarnTypes.regular_evening_8.daily_salary():.2f}\n',
             f'Regular night 8 = {DailyEarnTypes.regular_night_8.daily_salary():.2f}\n',

@@ -1,6 +1,7 @@
 from enum import StrEnum, auto
 
-rate_base = 34.32  # default min
+# rate_base = 34.32  # default min
+rate_base = 35
 
 
 class TypesStrEnum(StrEnum):
