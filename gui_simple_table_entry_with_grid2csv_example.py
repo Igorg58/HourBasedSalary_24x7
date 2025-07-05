@@ -1,8 +1,14 @@
 import os
 import tkinter as tk
+from tkinter import ttk
 # import pandas as pd
+from month_results import month_results
 
-csv_path = os.path.join('Config', 'config_06_25.csv')
+csv_path = os.path.join('Config', 'config_07_25.csv')
+if not os.path.isfile(csv_path):
+    with open(csv_path, 'w') as scv_fp:
+        scv_fp.write('Date,Start,End,Eve Holiday,Holiday,Extra to planned\n')
+
 csv_data = []
 required_row_len = 0
 required_rows_num = 20
@@ -25,13 +31,14 @@ print(f'Loaded CSV data: {csv_data}, len={len(csv_data)}')
 
 
 root = tk.Tk()
-root.title('Config Editor')
+root.title('Config file Editor')
+root.geometry('700x600')
 
-#--------
-root.geometry('600x500')
+# for idx in range(len(csv_data)):
+#     root.columnconfigure(index=idx)
 
-i = 0
-j = 0
+frame = tk.Frame(master=root)  #, width=600, height=500, relief=tk.SOLID)  #, borderwidth=1, relief=tk.SOLID)  #, tk.padding=[8, 10])
+i = j = 0
 entry_widgets = []
 for i, row in enumerate(csv_data):
     # print(f'i = {i}')
@@ -46,17 +53,6 @@ for i, row in enumerate(csv_data):
         # entry.grid_forget()
     entry_widgets.append(entry_widgets_row)
 print(f'')
-
-
-# def get_data():
-    # print('Updated data:')
-    # for entry_widgets_row in entry_widgets:
-    #     row_values = []
-    #     for entry in entry_widgets_row:
-    #         cell_value = entry.get()
-    #         row_values.append(cell_value)
-    #     updated_data.append(row_values)
-    #     print(row_values)
 
 
 def save_data():
@@ -81,19 +77,16 @@ def save_data():
 
 
 def run():
-    print('Not implemented yet')
+    # print('Not implemented yet')
+    save_data()
+    month_results('07', '25')
 
 
-# Add Buttons and Label
-# btn_get = tk.Button(root, text="Get Data", command=get_data)
-# btn_get.grid(row=(i+1), column=1)
-
-btn_save = tk.Button(root, text="Save Data", command=save_data)
+# Add Buttons
+btn_save = tk.Button(root, text="Save Data", command=save_data, width=10)
 btn_save.grid(row=(i+1), column=1)
 
-btn_run = tk.Button(root, text="Run", command=run)
+btn_run = tk.Button(root, text="Save & Run", command=run, width=10)
 btn_run.grid(row=(i+1), column=j)
-
-#-------
 
 root.mainloop()
