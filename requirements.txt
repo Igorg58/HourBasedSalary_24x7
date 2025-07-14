@@ -1,0 +1,5 @@
+babel == 2.17.0
+clr-loader
+numpy == 2.2.6
+pandas == 2.2.3
+tkcalendar == 1.6.1
