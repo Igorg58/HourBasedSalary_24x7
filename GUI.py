@@ -23,7 +23,7 @@ def update_csv_data(month, year):
     global csv_data
     csv_data = []
     required_row_len = 0
-    required_rows_num = 20
+    required_rows_num = 25
     with open(csv_path, 'r') as csv_fp:
         for idx, line in enumerate(csv_fp):
             row = line.strip().split(',')
@@ -98,7 +98,7 @@ def save_and_run():
 
 root = tk.Tk()
 root.title('Config file Editor')
-root.geometry('600x700')
+root.geometry('600x800')
 
 
 # Add Calendar
