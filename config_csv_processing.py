@@ -30,7 +30,7 @@ def config_csv_processing(month: str, year: str):
         part_of_day = ''
         if int(row['Start']) == 7:
             part_of_day = 'morning'
-        elif int(row['Start']) == 15:
+        elif int(row['Start']) in [15, 16]:
             part_of_day = 'evening'
         elif int(row['Start']) in [19, 23, 24]:
             part_of_day = 'night'
