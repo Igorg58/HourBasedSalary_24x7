@@ -33,7 +33,7 @@ class DailyEarnTypes(object):
     regular_night_7 = DailyEarn('regular_night_7',7)  # 24-7
 
     friday_morning_8 = DailyEarn('friday_morning_8',8)  # 7-15
-    friday_evening_8 = DailyEarn('friday_evening_8',8, h_150=3.5)  # 15-23 # TMP h_150 is hardcoded: month 05-08 -> 3.5, 09 -> 4
+    friday_evening_8 = DailyEarn('friday_evening_8',8, h_150=6.5)  # 15-23 # TMP h_150 is hardcoded: month 05-08 -> 3.5, 09 -> 4, 10 -> 6.5
     friday_night_8 = DailyEarn('friday_night_8',8, h_150=7, h_175=1)  # 23-6, 6-7
     friday_morning_12 = DailyEarn('friday_morning_12',12, h_125=2, h_150=2)    # 7-15, 15-17, 17-19
     friday_night_12 = DailyEarn('friday_night_12', 12, h_150=7, h_175=2, h_200=3)  # 19-2, 2-4, 4-7
@@ -45,6 +45,8 @@ class DailyEarnTypes(object):
     saturday_night_12 = DailyEarn('saturday_night_12',12, h_125=2, h_150=8)  # 19-24, 24-2, 2-4, 4-7
 
     extra_1h_175 = DailyEarn('extra_1h_175',1, h_175=1)
+    extra_1h5_125 = DailyEarn('extra_1h5_125',1.5, h_125=1.5)
+    extra_2h5_125 = DailyEarn('extra_2h5_125',2.5, h_125=2.5)  # specific case
 
     @staticmethod
     def get_types_and_salary():
@@ -66,6 +68,8 @@ class DailyEarnTypes(object):
             f'Saturday morning 12 = {DailyEarnTypes.saturday_morning_12.daily_salary():.2f}\n',
             f'Saturday night 12 = {DailyEarnTypes.saturday_night_12.daily_salary():.2f}\n',
             f'Extra working 1 hour with 175% = {DailyEarnTypes.extra_1h_175.daily_salary():.2f}\n',
+            f'Extra working 1.5 hour with 125% = {DailyEarnTypes.extra_1h5_125.daily_salary():.2f}\n',
+            f'Extra working 2.5 hour with 125% = {DailyEarnTypes.extra_2h5_125.daily_salary():.2f}\n',
             # '=' * 40,
             '\n'
         ]

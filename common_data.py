@@ -1,7 +1,8 @@
 from enum import StrEnum, auto
 
 # rate_base = 34.32  # default min
-rate_base = 35
+# rate_base = 35  # Keshet
+rate_base = 40
 
 # BTL (insurance)
 btl = {(0, 7522): {'nation_ins': 1.04, 'health_ins': 3.23},
@@ -27,6 +28,8 @@ class TypesStrEnum(StrEnum):
     saturday_night_12 = 'saturday_night_12'
 
     extra_1h_175 = 'extra_1h_175'  # TBD
+    extra_1h5_125 = 'extra_1h5_125'  # TBD
+    extra_2h5_125 = 'extra_2h5_125'  # TBD
 
     # night_regular = 'night_regular'
     # night_7 = 'night_7'
